@@ -3,7 +3,7 @@ FROM lscr.io/linuxserver/webtop:ubuntu-xfce
 # Install Node.js (LTS) and OpenClaw
 RUN apt-get update \
  && apt-get install -y curl ca-certificates \
- && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+ && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
  && apt-get install -y nodejs \
  && npm install -g openclaw \
  && apt-get clean \
@@ -13,4 +13,4 @@ RUN apt-get update \
 # CMD ["openclaw"]
 
 # Hint for persistent OpenClaw config (bind-mount at runtime)
-VOLUME ["/home/ubuntu/.openclaw"]
+VOLUME ["/config/.openclaw"]
